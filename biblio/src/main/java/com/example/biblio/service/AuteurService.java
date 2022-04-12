@@ -63,8 +63,9 @@ public class AuteurService {
     public Auteur insert(AuteurForm form){
         Auteur auteur = Auteur.builder()
                 .idAuteur(++nextId)
+                .nomAuteur(form.getNomAuteur())
+                .nationaliteAuteur(form.getNationaliteAuteur())
                 .build();
-
         auteurs.add(auteur);
         return auteur;
     }

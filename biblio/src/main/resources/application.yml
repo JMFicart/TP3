@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:bibliodb
+    username: user
+    password: pswd
+  jpa:
+    show-sql: true
+  #    hibernate:
+  #      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+      path: /h2

@@ -1,0 +1,209 @@
+package com.example.biblio.models;
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
+
+@Data
+@Builder
+public class Emprunt {
+    private int idEmprunt;
+    private int idLivre;
+    private int idEmprunteur;
+    private LocalDate dateEmpruntLivre;
+    private LocalDate dateRentreePrevue;
+}
+
+
+package com.example.biblio.models;
+
+import lombok.Builder;
+import lombok.Data;
+
+import java.time.LocalDate;
+
+@Data
+@Builder
+public class Emprunteur {
+    private int idEmprunteur;
+    private String nomEmprunteur;
+    private String prenomEmprunteur;
+    private String adresseEmprunteur;
+    private String codePostalEmprunteur;
+    private String LocaliteEmprunteur;
+    private String telephoneEmprunteur;
+    private String emailEmprunteur;
+    private LocalDate dateInscriptionEmprunteur;
+    private LocalDate dateRadiationEmprunteur;
+}
+
+package com.example.biblio.models;
+
+import lombok.Data;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
+
+@Data
+public class EmprunteurForm {
+    @NotBlank(message="Le nom de l'emprunteur ne peut être vide !")
+    @Size(min=1, max=200)
+    private String nomEmprunteur;
+    @NotBlank(message="Le prénom de l'emprunteur ne peut être vide !")
+    @Size(min=1, max=200)
+    private String prenomEmprunteur;
+    @NotBlank(message="L'adresse de l'emprunteur ne peut être vide !")
+    @Size(min=1, max=200)
+    private String adresseEmprunteur;
+    @NotBlank(message="Le code postal de l'emprunteur ne peut être vide !")
+    @Size(min=1, max=5)
+    private String codePostalEmprunteur;
+    @NotBlank(message="La localité de l'emprunteur ne peut être vide !")
+    @Size(min=1, max=200)
+    private String LocaliteEmprunteur;
+    @Size(min=1, max=20)
+    private String telephoneEmprunteur;
+    @Size(min=1, max=200)
+    private String emailEmprunteur;
+    @NotBlank(message="Le titre du livre ne peut être vide !")
+    private LocalDate dateInscriptionEmprunteur;
+    @NotBlank(message="Le titre du livre ne peut être vide !")
+    private LocalDate dateRadiationEmprunteur;
+}
+
+package com.example.biblio.models;
+
+import lombok.Data;
+
+@Data
+public class EmpruntForm {
+}
+
+package com.example.biblio.models;
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data
+@Builder
+public class Livre {
+    private int idLivre;
+    private String titreLivre;
+    private String categorieLivre;
+    private String isbnLivre;
+    private String idExemplaireLivre;
+}
+
+package com.example.biblio.models;
+
+import lombok.Data;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Data
+public class LivreForm {
+    @NotBlank(message="Le titre du livre ne peut être vide !")
+    @Size(min=1, max=200)
+    private String titreLivre;
+    @NotBlank(message="La catégorie du livre ne peut être vide !")
+    @Size(min=1, max=50)
+    private String categorieLivre;
+    @NotBlank(message="L'ISBN du livre ne peut être vide !")
+    @Size(min=1, max=20)
+    private String isbnLivre;
+    @NotBlank(message="Le numero d'exemplaire du livre ne peut être vide !")
+    @Size(min=1, max=20)
+    private String idExemplaireLivre;
+}
+
+
+// Services
+package com.example.biblio.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LivreService {
+    private final List<Livre> livres;
+    private int nextId = 5;
+
+    public LivreService() {
+        livres = new ArrayList<>();
+        livres.add(Livre.builder()
+                .idLivre(1)
+                .titreLivre("Voyage au centre de la Terre")
+                .categorieLivre("Fantastique")
+                .isbnLivre("456-9562-626")
+                .idExemplaireLivre("A48-552")
+                .build());
+
+        livres.add(Livre.builder()
+                .idLivre(2)
+                .titreLivre("Un monde d'azur")
+                .categorieLivre("Science-fiction")
+                .isbnLivre("597-1644-336")
+                .idExemplaireLivre("F25-483")
+                .build());
+
+        livres.add(Livre.builder()
+                .idLivre(3)
+                .titreLivre("Dune")
+                .categorieLivre("Science-fiction")
+                .isbnLivre("364-1489-218")
+                .idExemplaireLivre("D69-478")
+                .build());
+
+        livres.add(Livre.builder()
+                .idLivre(4)
+                .titreLivre("Rendez-vous avec Rama")
+                .categorieLivre("Science-fiction")
+                .isbnLivre("648-1548-321")
+                .idExemplaireLivre("R97-521")
+                .build());
+    }
+
+    public Livre getOne(int id){
+        return livres.stream().filter(e -> e.getIdLivre() == id)
+                .findFirst()
+                .orElseThrow();
+    }
+
+    public Livre getTitre(String t){
+        return livres.stream().filter(e -> e.getTitreLivre().equals(t) )
+                .findFirst()
+                .orElseThrow();
+    }
+
+    public Livre getISBN(String i){
+        return livres.stream().filter(e -> e.getIsbnLivre().equals(i) )
+                .findFirst()
+                .orElseThrow();
+    }
+
+    public List<Livre> getCategorie(String c){
+        return livres.stream().filter(e -> e.getCategorieLivre().equals(c) )
+                .toList();
+    }
+
+    public List<Livre> getAll(){
+        return new ArrayList<Livre>(livres);
+    }
+
+    public Livre insert(LivreForm form){
+        Livre livre = Livre.builder()
+                .idLivre(++nextId)
+                .titreLivre(form.getTitreLivre())
+                .categorieLivre(form.getCategorieLivre())
+                .isbnLivre(form.getIsbnLivre())
+                .idExemplaireLivre(form.getIdExemplaireLivre())
+                .build();
+        livres.add(livre);
+        return livre;
+    }
+}

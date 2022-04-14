@@ -2,7 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en" th:replace="~{/layout/layout :: layout(~{::content},~{::css})}">
 <th:block th:object="${auteur}" th:fragment="content">
     <!--    th:href="@{/css/specific.css}"-->
-    <h2 th:text="|Id auteur : ${auteur.idAuteur} |"></h2>
+    <header>
+        <h2>Détail d'un auteur</h2><br>
+    </header>
+
+    <h4 th:text="|Id auteur : ${auteur.idAuteur} |"></h4>
     <p th:text="|Nom auteur : ${auteur.nomAuteur} |"> </p>
     <p th:text="|Nationalité auteur : ${auteur.nationaliteAuteur} |"></p>
     <p><a href="/auteur">Retour</a></p>

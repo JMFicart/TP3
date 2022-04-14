@@ -1,9 +1,6 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" lang="fr" th:replace="~{/layout/layout :: layout(~{::content},_)}" th:href="@{/css/main.css}">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr" th:replace="~{/layout/layout :: layout(~{::content},_,'headerListeAuteur')}" th:href="@{/css/main.css}">
 <th:block th:fragment="content" th:with="list=${get_all}">
-  <header>
-    <h2>Liste des auteurs</h2>
-  </header>
   <a th:href="@{/auteur}"></a>
   <ul>
     <li th:each="auteur : ${auteur_liste}" th:object="${auteur}">

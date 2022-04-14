@@ -43,9 +43,18 @@ public class DatabaseFiller implements InitializingBean{
         aRepo.save(a);
     }
 
+//    private void setupLivre(){
+//        Livre l = Livre.builder()
+//                .idLivre(1)
+//                .build();
+//        lRepo.save(l);
+//
+//    }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         setupAuteur();
+        //setupLivre();
     }
 }
 

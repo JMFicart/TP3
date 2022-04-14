@@ -39,7 +39,7 @@ public class AuteurController {
         Auteur a = service.getOne(id);
         model.addAttribute("auteur", a);
 //        return "templates/forms/pages/displayAuteurById";
-        return "pages/displayAuteurById";
+        return "pages/auteur/displayAuteurById";
     }
 
     @GetMapping
@@ -47,39 +47,25 @@ public class AuteurController {
     public String displayAll(Model model){
         List<Auteur> list = service.getAll();
         model.addAttribute("auteur_liste", list);
-        return "pages/displayAllAuteur";
-    }
-
-    @GetMapping("/bynom")
-//    @PreAuthorize("permitAll()")
-    public String displayNomAuteur(@RequestParam String nom, Model model){
-        model.addAttribute("auteur_nom", service.getNom(nom));
-        return "pages/displayNom";
-    }
-
-    @GetMapping("/bypays")
-//    @PreAuthorize("permitAll()")
-    public String displayAuteurPays(@RequestParam String pays, Model model){
-        model.addAttribute("auteur_pays", service.getPays(pays));
-        return "pages/displayPays";
+        return "pages/auteur/displayAllAuteur";
     }
 
     @ExceptionHandler(NoSuchElementException.class)
     public String handle(NoSuchElementException ex){
-        return "pages/404";
+        return "pages/misc/404";
     }
 
     @GetMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String displayInsertForm(@ModelAttribute("auteur") AuteurForm form){
-        return "forms/auteurForm";
+        return "forms/auteurform";
     }
 
     @PostMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String processInsert(@Valid @ModelAttribute("auteur") AuteurForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/AuteurForm";
+            return "forms/auteurform";
         Auteur rslt = service.insert(form);
         return "redirect:/auteur/" + rslt.getIdAuteur();
     }

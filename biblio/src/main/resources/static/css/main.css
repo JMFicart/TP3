@@ -1,4 +1,13 @@
 header {
     color: white;
-    background-color: green;
+    background-color: blue;
 }
+
+.nav_link:link{
+    color: yellow;
+}
+
+.nav_link:visited{
+    color: red;
+}
+

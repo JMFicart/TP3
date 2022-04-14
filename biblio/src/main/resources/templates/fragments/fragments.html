@@ -1,11 +1,53 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<header th:fragment = "header">
-    <h1>Gestion de la bibliothèque</h1>-->
+<header th:fragment = "headerBasic">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
 </header>
 
-<div id="truc">
-  <p>Un truc</p>
-</div>
+<header th:fragment = "headerMainMenu">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Menu principal</h3><br>
+    <nav>
+        <a href="/maintenance" class="nav_link">Fichiers</a>
+        <!--                <a href="/emprunts" class="nav_link">Emprunts</a>-->
+        <!--                <a href="404.html" class="nav_link">404</a>-->
+    </nav>
+</header>
+
+<header th:fragment = "headerMaintenance">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Maintenance des fichiers</h3><br>
+    <nav>
+        <a href="/auteurmaintenance" class="nav_link">Auteurs</a>
+        <a href="/bibliomenu" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerMaintAuteur">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Maintenance des auteurs</h3><br>
+    <nav>
+        <a href="/auteur" class="nav_link">Liste</a>
+        <a href="/add" class="nav_link">Ajout</a>
+        <a href="/maintenance" class="nav_link">Modification</a>
+        <a href="/maintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerListeAuteur">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Liste des auteurs</h3><br>
+    <nav>
+        <a href="/auteurmaintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<!--<div id="listeauteur">-->
+<!--    <p>Liste des auteurs</p>-->
+<!--</div>-->
+
+<!--<div id="detailauteur">-->
+<!--  <p>Détails d'un auteur</p>-->
+<!--</div>-->
 
 <footer th:fragment="footer">
 <!--  <p>Au revoir</p>-->

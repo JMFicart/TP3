@@ -27,8 +27,8 @@
     <h3>Maintenance des auteurs</h3><br>
     <nav>
         <a href="/auteur" class="nav_link">Liste</a>
-        <a href="/add" class="nav_link">Ajout</a>
-        <a href="/maintenance" class="nav_link">Modification</a>
+        <a href="/auteur/add" class="nav_link">Ajout</a>
+        <a href="/auteur/select" class="nav_link">Modification</a>
         <a href="/maintenance" class="nav_link">Retour</a>
     </nav>
 </header>
@@ -36,6 +36,30 @@
 <header th:fragment = "headerListeAuteur">
     <h2>Gestion de la bibliothèque XYZ</h2><br>
     <h3>Liste des auteurs</h3><br>
+    <nav>
+        <a href="/auteurmaintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerAuteurById">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Fiche auteur</h3><br>
+    <nav>
+        <a href="/auteurmaintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerAddAuteur">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Ajout d'un auteur</h3><br>
+    <nav>
+        <a href="/auteurmaintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerSelectAuteur">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Sélection d'un auteur</h3><br>
     <nav>
         <a href="/auteurmaintenance" class="nav_link">Retour</a>
     </nav>

@@ -2,6 +2,7 @@ package com.example.biblio.controllers;
 
 import com.example.biblio.models.Auteur;
 import com.example.biblio.models.AuteurForm;
+import com.example.biblio.models.AuteurFormId;
 import com.example.biblio.service.AuteurService;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -38,7 +39,6 @@ public class AuteurController {
     public String displayOne(@PathVariable int id, Model model){
         Auteur a = service.getOne(id);
         model.addAttribute("auteur", a);
-//        return "templates/forms/pages/displayAuteurById";
         return "pages/auteur/displayAuteurById";
     }
 
@@ -68,6 +68,13 @@ public class AuteurController {
             return "forms/auteurform";
         Auteur rslt = service.insert(form);
         return "redirect:/auteur/" + rslt.getIdAuteur();
+
+    }
+
+    @GetMapping("/select")
+//    @PreAuthorize("isAuthenticated()")
+    public String displaySelectForm(@ModelAttribute("auteur") AuteurFormId form){
+        return "forms/auteuridform";
     }
 }
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_)}">
+<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_,'headerAddAuteur')}">
 <th:block th:fragment="content">
     <a href="/>auteur">    </a>
-    <button class=""btn btn-danger></button>
+<!--    <button class=""btn btn-danger></button>-->
     <form action="#" th:action="@{/auteur/add}" th:object="${auteur}" method="post">
         <div class="mb-3">
-            <label for="input-nomauteur" class="form-label">Nom auteur</label>
+            <label for="input-nomauteur" class="form-label">Nom </label>
             <input type="text" id = "input-nomauteur" class="form-control" th:field="*{nomAuteur}">
             <p th:if="${#fields.hasErrors('nomAuteur')}" th:errors="*{nomAuteur}">Il y a des erreurs</p>
             <p th:unless="${#fields.hasErrors('nomAuteur')}">Il n'y a pas d'erreurs</p>
@@ -17,7 +17,7 @@
             <p th:if="${#fields.hasErrors('nationaliteAuteur')}" th:errors="*{nationaliteAuteur}">Il y a des erreurs</p>
         </div>
 
-        <button type="submit" class="btn-btn-info">Envoyer</button>
+        <button type="submit" class="btn-btn-info">Ajouter</button>
     </form>
 </th:block>
 

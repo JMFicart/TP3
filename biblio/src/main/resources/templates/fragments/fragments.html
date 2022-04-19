@@ -8,7 +8,7 @@
     <h3>Menu principal</h3><br>
     <nav>
         <a href="/maintenance" class="nav_link">Fichiers</a>
-        <!--                <a href="/emprunts" class="nav_link">Emprunts</a>-->
+<!--        <a href="/emprunts" class="nav_link">Emprunts</a>-->
         <!--                <a href="404.html" class="nav_link">404</a>-->
     </nav>
 </header>
@@ -18,6 +18,8 @@
     <h3>Maintenance des fichiers</h3><br>
     <nav>
         <a href="/auteurmaintenance" class="nav_link">Auteurs</a>
+<!--        <a href="/livremaintenance" class="nav_link">Livres</a>-->
+<!--        <a href="/usagermaintenance" class="nav_link">Usagers</a>-->
         <a href="/bibliomenu" class="nav_link">Retour</a>
     </nav>
 </header>
@@ -28,7 +30,7 @@
     <nav>
         <a href="/auteur" class="nav_link">Liste</a>
         <a href="/auteur/add" class="nav_link">Ajout</a>
-        <a href="/auteur/select" class="nav_link">Modification</a>
+        <a href="/auteur/update" class="nav_link">Modification</a>
         <a href="/maintenance" class="nav_link">Retour</a>
     </nav>
 </header>
@@ -57,13 +59,97 @@
     </nav>
 </header>
 
-<header th:fragment = "headerSelectAuteur">
+<header th:fragment = "headerUpdateAuteur">
     <h2>Gestion de la bibliothèque XYZ</h2><br>
-    <h3>Sélection d'un auteur</h3><br>
+    <h3>Modification d'un auteur</h3><br>
     <nav>
         <a href="/auteurmaintenance" class="nav_link">Retour</a>
     </nav>
 </header>
+
+<header th:fragment = "headerMaintLivre">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Maintenance des livres</h3><br>
+    <nav>
+        <a href="/livre" class="nav_link">Liste</a>
+        <a href="/livre/add" class="nav_link">Ajout</a>
+        <a href="/livre/update" class="nav_link">Modification</a>
+        <a href="/maintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerListeLivre">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Liste des livres</h3><br>
+    <nav>
+        <a href="/livremaintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerAddLivre">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Ajout d'un livre</h3><br>
+    <nav>
+        <a href="/livremaintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerUpdateLivre">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Modification d'un livre</h3><br>
+    <nav>
+        <a href="/livremaintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerMaintUsager">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Maintenance des usagers</h3><br>
+    <nav>
+        <a href="/usager" class="nav_link">Liste</a>
+        <a href="/usager/add" class="nav_link">Ajout</a>
+        <a href="/usager/update" class="nav_link">Modification</a>
+        <a href="/maintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerListeUsager">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Liste des usagers</h3><br>
+    <nav>
+        <a href="/usagermaintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerAddUsager">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Ajout d'un usager</h3><br>
+    <nav>
+        <a href="/usagermaintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerUpdateUsager">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Modification d'un usager</h3><br>
+    <nav>
+        <a href="/usagermaintenance" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerEmprunt">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Gestion des emprunts</h3><br>
+    <nav>
+        <a href="/emprunt/add" class="nav_link">Emprunt</a>
+        <a href="/emprunt/rentree" class="nav_link">Rentrée</a>
+        <a href="/emprunt/encours" class="nav_link">Liste des emprunts en cours</a>
+        <a href="/emprunt/enretard" class="nav_link">Liste des retards</a>
+        <a href="/bibliomenu" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+
 
 <!--<div id="listeauteur">-->
 <!--    <p>Liste des auteurs</p>-->

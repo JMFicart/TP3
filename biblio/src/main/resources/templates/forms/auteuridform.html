@@ -1,16 +1,48 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_,'headerSelectAuteur')}">-->
+<!--<th:block th:fragment="content">-->
+<!--    <a href="/>auteur">    </a>-->
+<!--    <form action="#" th:action="@{/auteur/select}" th:object="${auteur}" method="get">-->
+<!--        <div class="mb-3">-->
+<!--            <label for="input-idauteur" class="form-label">Id </label>-->
+<!--            <input type="number" id = "input-idauteur" class="form-control" th:field="*{nomAuteur}">-->
+<!--            <p th:if="${#fields.hasErrors('idAuteur')}" th:errors="*{idAuteur}">Il y a des erreurs</p>-->
+<!--            <p th:unless="${#fields.hasErrors('idAuteur')}">Il n'y a pas d'erreurs</p>-->
+<!--        </div>-->
+
+<!--        <button type="submit" class="btn-btn-info">Sélectionner</button>-->
+<!--    </form>-->
+<!--</th:block>-->
+
 <!DOCTYPE html>
-<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_,'headerSelectAuteur')}">
+<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_,'headerUpdateAuteur')}">
 <th:block th:fragment="content">
     <a href="/>auteur">    </a>
-    <form action="#" th:action="@{/auteur/select}" th:object="${auteur}" method="get">
+    <!--    <button class=""btn btn-danger></button>-->
+    <form action="#" th:action="@{/auteur/update}" th:object="${auteur}" method="post">
         <div class="mb-3">
             <label for="input-idauteur" class="form-label">Id </label>
-            <input type="number" id = "input-idauteur" class="form-control" th:field="*{nomAuteur}">
-            <p th:if="${#fields.hasErrors('idAuteur')}" th:errors="*{idAuteur}">Il y a des erreurs</p>
-            <p th:unless="${#fields.hasErrors('idAuteur')}">Il n'y a pas d'erreurs</p>
+            <input type="number" id = "input-idauteur" class="form-control" th:field="*{idAuteur}">
+<!--            <p th:if="${#fields.hasErrors('idAuteur')}" th:errors="*{idAuteur}">Il y a des erreurs</p>-->
+<!--            <p th:unless="${#fields.hasErrors('idAuteur')}">Il n'y a pas d'erreurs</p>-->
+            <button type="button" onclick="getOne({idAuteur})" class="btn-btn-info">Chercher</button>
         </div>
 
-        <button type="submit" class="btn-btn-info">Sélectionner</button>
+        <div class="mb-3">
+            <label for="input-nomauteur" class="form-label">Nom </label>
+            <input type="text" id = "input-nomauteur" class="form-control" th:field="*{nomAuteur}">
+            <p th:if="${#fields.hasErrors('nomAuteur')}" th:errors="*{nomAuteur}">Il y a des erreurs</p>
+            <p th:unless="${#fields.hasErrors('nomAuteur')}">Il n'y a pas d'erreurs</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-nationaliteAuteur" class="form-label">Nationalité</label>
+            <input type="text" id = "input-nationaliteAuteur" class="form-control" th:field="*{nationaliteAuteur}">
+            <p th:if="${#fields.hasErrors('nationaliteAuteur')}" th:errors="*{nationaliteAuteur}">Il y a des erreurs</p>
+        </div>
+
+        <button type="submit" class="btn-btn-info">Sauvegarder</button>
     </form>
 </th:block>
+
 

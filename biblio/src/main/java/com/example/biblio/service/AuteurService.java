@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class AuteurService {
     private final List<Auteur> auteurs;
-    private int nextId = 5;
+    private int nextIdAuteur = 5;
 
     public AuteurService() {
         auteurs = new ArrayList<>();
@@ -62,7 +62,7 @@ public class AuteurService {
 
     public Auteur insert(AuteurForm form){
         Auteur auteur = Auteur.builder()
-                .idAuteur(++nextId)
+                .idAuteur(++nextIdAuteur)
                 .nomAuteur(form.getNomAuteur())
                 .nationaliteAuteur(form.getNationaliteAuteur())
                 .build();

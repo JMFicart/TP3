@@ -76,5 +76,12 @@ public class AuteurController {
     public String displaySelectForm(@ModelAttribute("auteur") AuteurFormId form){
         return "forms/auteuridform";
     }
+
+    @GetMapping("/update")
+//    @PreAuthorize("isAuthenticated()")
+    public String displayUpdateForm(@ModelAttribute("auteur") AuteurFormId form){
+        return "forms/auteuridform";
+    }
+
 }
 

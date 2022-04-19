@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Auteur {
     @Id
     @Column(name = "idAuteur", nullable = false)
-    private int idAuteur;
+    private Long idAuteur;
     @Column(name = "nomAuteur", nullable = false, length = 200)
     private String nomAuteur;
     @Column(name = "nationaliteAuteur", nullable = false, length = 50)

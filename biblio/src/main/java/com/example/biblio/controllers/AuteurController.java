@@ -36,10 +36,20 @@ public class AuteurController {
     // GET - http://localhost:8080/auteur/id
     //    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public String displayOne(@PathVariable int id, Model model){
+    public String displayOne(@PathVariable Long id, Model model){
         Auteur a = service.getOne(id);
         model.addAttribute("auteur", a);
-        return "pages/auteur/displayAuteurById";
+//        return "pages/auteur/displayAuteurById";
+        return "forms/auteuridform";
+    }
+
+    @PostMapping("/{id}")
+//    @PreAuthorize("isAuthenticated()")
+    public String processUpdate(@Valid @ModelAttribute("auteur") AuteurForm form, BindingResult binding){
+        if (binding.hasErrors())
+            return "forms/auteurform";
+        Auteur rslt = service.update(form);
+        return "redirect:/auteur/" + rslt.getIdAuteur();
     }
 
     @GetMapping
@@ -68,7 +78,6 @@ public class AuteurController {
             return "forms/auteurform";
         Auteur rslt = service.insert(form);
         return "redirect:/auteur/" + rslt.getIdAuteur();
-
     }
 
     @GetMapping("/select")

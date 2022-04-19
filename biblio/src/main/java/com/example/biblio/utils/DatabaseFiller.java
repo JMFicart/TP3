@@ -15,29 +15,29 @@ public class DatabaseFiller implements InitializingBean{
 
     private void setupAuteur(){
         Auteur a = Auteur.builder()
-                .idAuteur(1)
+                .idAuteur(1L)
                 .nomAuteur("Jules Verne")
                 .nationaliteAuteur("France")
                 .build();
         aRepo.save(a);
 
         a = Auteur.builder()
-                .idAuteur(2)
+                .idAuteur(2L)
                 .nomAuteur("Jack Vance")
                 .nationaliteAuteur("USA")
                 .build();
         aRepo.save(a);
 
         a = Auteur.builder()
-                .idAuteur(3)
+                .idAuteur(3L)
                 .nomAuteur("Frank Herbert")
                 .nationaliteAuteur("USA")
                 .build();
         aRepo.save(a);
 
         a = Auteur.builder()
-                .idAuteur(4)
-                .nomAuteur("Arthur C Clark")
+                .idAuteur(4L)
+                .nomAuteur("Arthur C Clarke")
                 .nationaliteAuteur("GB")
                 .build();
         aRepo.save(a);

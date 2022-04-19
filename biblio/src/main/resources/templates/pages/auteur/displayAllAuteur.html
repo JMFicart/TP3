@@ -4,9 +4,11 @@
   <a th:href="@{/auteur}"></a>
   <ul>
     <li th:each="auteur : ${auteur_liste}" th:object="${auteur}">
-      <p th:text="|Nom : *{nomAuteur}|"></p>
+      <p th:text="|Id          : *{idAuteur}|"></p>
+      <p th:text="|Nom         : *{nomAuteur}|"></p>
       <p th:text="|Nationalité : *{nationaliteAuteur}|"></p>
-<!--      <p><a th:href="@{/auteur/{idAuteur}(idAuteur=*{idAuteur}, param1='param1')}">Détails</a></p>-->
+      <p><a th:href="@{/auteur/{idAuteur}(idAuteur=*{idAuteur}, param1='param1')}">Update</a></p>
+<!--      <p><a th:href="@{/produit/{id}(id=*{id}, param1='param1')}">Update</a></p>-->
     </li>
   </ul>
 </th:block>

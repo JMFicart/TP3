@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_,'headerIdUsager')}">
+<th:block th:fragment="content">
+    <a href="/>usager">    </a>
+    <form action="#" th:action="@{/usager/add}" th:object="${usager}" method="post">
+        <div class="mb-3">
+            <label for="input-idusager" class="form-label">Nom</label>
+            <input type="text" id = "input-idusager" class="form-control" th:field="*{idUsager}">
+            <p th:if="${#fields.hasErrors('idUsager')}" th:errors="*{idUsager}">Il y a des erreurs</p>
+            <p th:unless="${#fields.hasErrors('idUsager')}">Il n'y a pas d'erreurs</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-nomusager" class="form-label">Nom</label>
+            <input type="text" id = "input-nomusager" class="form-control" th:field="*{nomUsager}">
+            <p th:if="${#fields.hasErrors('nomUsager')}" th:errors="*{nomUsager}">Il y a des erreurs</p>
+            <p th:unless="${#fields.hasErrors('nomUsager')}">Il n'y a pas d'erreurs</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-prenomusager" class="form-label">Prénom</label>
+            <input type="text" id = "input-prenomusager" class="form-control" th:field="*{prenomUsager}">
+            <p th:if="${#fields.hasErrors('prenomUsager')}" th:errors="*{prenomUsager}">Il y a des erreurs</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-adresseusager" class="form-label">Adresse</label>
+            <input type="text" id = "input-adresseusager" class="form-control" th:field="*{adresseUsager}">
+            <p th:if="${#fields.hasErrors('adresseUsager')}" th:errors="*{adresseUsager}">Il y a des erreurs</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-codepostalusager" class="form-label">Code postal</label>
+            <input type="text" id = "input-codepostalusager" class="form-control" th:field="*{codepostalUsager}">
+            <p th:if="${#fields.hasErrors('codepostalUsager')}" th:errors="*{codepostalUsager}">Il y a des erreurs</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-localiteusager" class="form-label">Localité</label>
+            <input type="text" id = "input-localiteusager" class="form-control" th:field="*{localiteUsager}">
+            <p th:if="${#fields.hasErrors('localiteUsager')}" th:errors="*{localiteUsager}">Il y a des erreurs</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-telephoneusager" class="form-label">Téléphone</label>
+            <input type="text" id = "input-telephoneusager" class="form-control" th:field="*{telephoneUsager}">
+            <p th:if="${#fields.hasErrors('telephoneUsager')}" th:errors="*{telephoneUsager}">Il y a des erreurs</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-emailusager" class="form-label">Téléphone</label>
+            <input type="text" id = "input-emailusager" class="form-control" th:field="*{emailUsager}">
+            <p th:if="${#fields.hasErrors('emailUsager')}" th:errors="*{emailUsager}">Il y a des erreurs</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-dateinscriptionusager" class="form-label">Téléphone</label>
+            <input type="date" id = "input-dateinscriptionusager" class="form-control" th:field="*{dateInscriptionUsager}">
+            <p th:if="${#fields.hasErrors('dateInscriptionUsager')}" th:errors="*{dateInscriptionUsager}">Il y a des erreurs</p>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-dateradiationusager" class="form-label">Téléphone</label>
+            <input type="date" id = "input-dateradiationusager" class="form-control" th:field="*{dateRadiationUsager}">
+            <p th:if="${#fields.hasErrors('dateRadiationUsager')}" th:errors="*{dateRadiationUsager}">Il y a des erreurs</p>
+        </div>
+
+        <button type="submit" class="btn-btn-info">Sauvegarder</button>
+    </form>
+</th:block>
+

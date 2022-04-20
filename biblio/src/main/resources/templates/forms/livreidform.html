@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_,'headerIdLivre')}">
+<th:block th:fragment="content">
+  <a href="/>livre">    </a>
+  <!--    <button class=""btn btn-danger></button>-->
+  <form action="#" th:action="@{/auteur/*{idAuteur}}" th:object="${auteur}" method="post">
+    <div class="mb-3">
+      <label for="input-idlivre" class="form-label">Id Livre</label>
+      <input type="number" id = "input-idlivre" class="form-control" th:field="*{idLivre}">
+    </div>
+
+    <div class="mb-3">
+      <label for="input-titrelivre" class="form-label">Titre du livre</label>
+      <input type="text" id = "input-titrelivre" class="form-control" th:field="*{titreLivre}">
+      <p th:if="${#fields.hasErrors('titreLivre')}" th:errors="*{titreLivre}">Il y a des erreurs</p>
+      <p th:unless="${#fields.hasErrors('titreLivre')}">Il n'y a pas d'erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-categorielivre" class="form-label">Catégorie du livre</label>
+      <input type="text" id = "input-categorielivre" class="form-control" th:field="*{categorieLivre}">
+      <p th:if="${#fields.hasErrors('categorieLivre')}" th:errors="*{categorieLivre}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-isbnlivre" class="form-label">ISBN du livre</label>
+      <input type="text" id = "input-isbnlivre" class="form-control" th:field="*{isbnLivre}">
+      <p th:if="${#fields.hasErrors('isbnLivre')}" th:errors="*{isbnLivre}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-isexemplairelivre" class="form-label">N° d'exemplaire du livre</label>
+      <input type="text" id = "input-isexemplairelivre" class="form-control" th:field="*{idExemplaireLivre}">
+      <p th:if="${#fields.hasErrors('idExemplaireLivre')}" th:errors="*{idExemplaireLivre}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-idauteur" class="form-label">Auteur</label>
+      <input type="text" id = "input-idauteur" class="form-control" th:field="*{idAuteur}">
+      <p th:if="${#fields.hasErrors('idAuteur')}" th:errors="*{idAuteur}">Il y a des erreurs</p>
+    </div>
+
+    <button type="submit" class="btn-btn-info">Sauvegarder</button>
+  </form>
+</th:block>

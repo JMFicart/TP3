@@ -1,16 +1,26 @@
 package com.example.biblio.utils;
 
 import com.example.biblio.models.Auteur;
+import com.example.biblio.models.Livre;
+import com.example.biblio.models.Usager;
 import com.example.biblio.repositories.AuteurRepository;
+import com.example.biblio.repositories.LivreRepository;
+import com.example.biblio.repositories.UsagerRepository;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DatabaseFiller implements InitializingBean{
     private final AuteurRepository aRepo;
+    private final LivreRepository lRepo;
+    private final UsagerRepository uRepo;
 
-    public DatabaseFiller(AuteurRepository aRepo) {
+    public DatabaseFiller(AuteurRepository aRepo, LivreRepository lRepo, UsagerRepository uRepo) {
         this.aRepo = aRepo;
+        this.lRepo = lRepo;
+        this.uRepo = uRepo;
     }
 
     private void setupAuteur(){
@@ -43,18 +53,96 @@ public class DatabaseFiller implements InitializingBean{
         aRepo.save(a);
     }
 
-//    private void setupLivre(){
-//        Livre l = Livre.builder()
-//                .idLivre(1)
-//                .build();
-//        lRepo.save(l);
-//
-//    }
+    private void setupLivre(){
+        Livre l = Livre.builder()
+                .idLivre(1L)
+                .titreLivre("Voyage au centre de la Terre")
+                .categorieLivre("Aventure")
+                .isbnLivre("156-454554-9899")
+                .idExemplaireLivre("BGT-985")
+                .idAuteur(1L)
+                .build();
+        lRepo.save(l);
+
+        l = Livre.builder()
+                .idLivre(2L)
+                .titreLivre("Un monde d'azur")
+                .categorieLivre("Science-fiction")
+                .isbnLivre("896-658947-3694")
+                .idExemplaireLivre("SDE-156")
+                .idAuteur(2L)
+                .build();
+        lRepo.save(l);
+
+        l = Livre.builder()
+                .idLivre(3L)
+                .titreLivre("Dune")
+                .categorieLivre("Science-fiction")
+                .isbnLivre("489-453289-9712")
+                .idExemplaireLivre("AGT-186")
+                .idAuteur(3L)
+                .build();
+        lRepo.save(l);
+
+        l = Livre.builder()
+                .idLivre(4L)
+                .titreLivre("L'affaire Saint Fiacre")
+                .categorieLivre("Policier")
+                .isbnLivre("854-364895-1496")
+                .idExemplaireLivre("KIO-658")
+                .idAuteur(4L)
+                .build();
+        lRepo.save(l);
+    }
+
+    private void setupUsager(){
+        Usager u = Usager.builder()
+                .idUsager(1L)
+                .nomUsager("Dupont")
+                .prenomUsager("Jules")
+                .adresseUsager("Rue du commerce, 38")
+                .codepostalUsager("5000")
+                .localiteUsager("Namur")
+                .telephoneUsager("0489/658294")
+                .emailUsager("jules.dupont@gmail.com")
+                .dateInscriptionUsager(LocalDate.now().minusYears(2))
+//                .dateRadiationUsager("")
+                .build();
+        uRepo.save(u);
+
+        u = Usager.builder()
+                .idUsager(2L)
+                .nomUsager("Cutugno")
+                .prenomUsager("Toto")
+                .adresseUsager("Avenue Jean Materne, 52")
+                .codepostalUsager("5100")
+                .localiteUsager("Jambes")
+                .telephoneUsager("0472/934812")
+                .emailUsager("t.cutugno@gmail.com")
+                .dateInscriptionUsager(LocalDate.now().minusYears(1))
+//                .dateRadiationUsager("")
+                .build();
+        uRepo.save(u);
+
+        u = Usager.builder()
+                .idUsager(3L)
+                .nomUsager("Alphabete")
+                .prenomUsager("Anne")
+                .adresseUsager("Avenue Cardinal Mercier, 18")
+                .codepostalUsager("5000")
+                .localiteUsager("Namur")
+                .telephoneUsager("0471/648525")
+                .emailUsager("a.alphabete@gmail.com")
+                .dateInscriptionUsager(LocalDate.now().minusYears(3))
+//                .dateRadiationUsager("")
+                .build();
+        uRepo.save(u);
+    }
 
     @Override
     public void afterPropertiesSet() throws Exception {
         setupAuteur();
-        //setupLivre();
+        setupLivre();
+        setupUsager();
     }
 }
-

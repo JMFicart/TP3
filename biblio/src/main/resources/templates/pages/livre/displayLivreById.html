@@ -1,0 +1,11 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:replace="~{/layout/layout :: layout(~{::content},~{::css},'headerLivreById')}">
+<th:block th:object="${livre}" th:fragment="content">
+    <h4 th:text="|Id            : ${livre.idLivre} |"></h4>
+    <p th:text="|Titre         : ${livre.titreLivre}|"></p>
+    <p th:text="|Catégorie     : ${livre.categorieLivre}|"></p>
+    <p th:text="|ISBN          : ${livre.isbnLivre}|"></p>
+    <p th:text="|Id exemplaire : ${livre.idExemplaireLivre}|"></p>
+    <p th:text="|Auteur        : ${livre.idAuteur}|"></p>
+</th:block>
+</html>

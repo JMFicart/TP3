@@ -1,0 +1,17 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr" th:replace="~{/layout/layout :: layout(~{::content},_,'headerListeLivre')}" th:href="@{/css/main.css}">
+<th:block th:fragment="content" th:with="list=${get_all}">
+    <a th:href="@{/livre}"></a>
+    <ul>
+        <li th:each="livre : ${livre_liste}" th:object="${livre}">
+            <p th:text="|Id            : *{idLivre}|"></p>
+            <p th:text="|Titre         : *{titreLivre}|"></p>
+            <p th:text="|Catégorie     : *{categorieLivre}|"></p>
+            <p th:text="|ISBN          : *{isbnLivre}|"></p>
+            <p th:text="|Id exemplaire : *{idExemplaireLivre}|"></p>
+            <p th:text="|Auteur        : *{idAuteur}|"></p>
+            <p><a th:href="@{/livre/{idLivre}(idLivre=*{idLivre}, param1='param1')}">Update</a></p>
+        </li>
+    </ul>
+</th:block>
+</html>

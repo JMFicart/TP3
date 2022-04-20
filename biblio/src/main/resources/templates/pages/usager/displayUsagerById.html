@@ -1,0 +1,14 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:replace="~{/layout/layout :: layout(~{::content},~{::css},'headerUsagerById')}">
+<th:block th:object="${usager}" th:fragment="content">
+    <h4 th:text="|Id               : ${usager.idUsager} |"></h4>
+    <p th:text="|Nom              : ${usager.nomUsager}|"></p>
+    <p th:text="|Prénom           : ${usager.prenomUsager}|"></p>
+    <p th:text="|Adresse          : ${usager.adresseUsager}|"></p>
+    <p th:text="|Code postal      : ${usager.codepostalUsager}|"></p>
+    <p th:text="|Localité         : ${usager.localiteUsager}|"></p>
+    <p th:text="|Téléphone        : ${usager.telephoneUsager}|"></p>
+    <p th:text="|Date inscription : ${usager.dateInscriptionUsager}|"></p>
+    <p th:text="|Date radiation   : ${usager.dateRadiationUsager}|"></p>
+</th:block>
+</html>

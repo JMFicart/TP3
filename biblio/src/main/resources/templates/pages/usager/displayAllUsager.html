@@ -1,0 +1,22 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr" th:replace="~{/layout/layout :: layout(~{::content},_,'headerListeUsager')}" th:href="@{/css/main.css}">
+<th:block th:fragment="content" th:with="list=${get_all}">
+  <a th:href="@{/usager}"></a>
+  <ul>
+    <li th:each="usager : ${usager_liste}" th:object="${usager}">
+      <p th:text="|Id               : *{idUsager}|"></p>
+      <p th:text="|Nom              : *{nomUsager}|"></p>
+      <p th:text="|Prénom           : *{prenomUsager}|"></p>
+      <p th:text="|Adresse          : *{adresseUsager}|"></p>
+      <p th:text="|Code postal      : *{codepostalUsager}|"></p>
+      <p th:text="|Localité         : *{localiteUsager}|"></p>
+      <p th:text="|Téléphone        : *{telephoneUsager}|"></p>
+      <p th:text="|Email            : *{emailUsager}|"></p>
+      <p th:text="|Date inscription : *{dateInscriptionUsager}|"></p>
+      <p th:text="|Date radiation   : *{dateRadiationUsager}|"></p>
+
+      <p><a th:href="@{/usager/{idUsager}(idUsager=*{idUsager}, param1='param1')}">Update</a></p>
+    </li>
+  </ul>
+</th:block>
+</html>

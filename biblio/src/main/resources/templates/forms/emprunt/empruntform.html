@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_,'headerAddEmprunt')}">
+<th:block th:fragment="content">
+  <a href="/>emprunt">    </a>
+  <form action="#" th:action="@{/emprunt/add}" th:object="${emprunt}" method="post">
+
+    <div class="mb-3">
+      <label for="input-idlivre" class="form-label">Livre</label>
+      <input type="number" id = "input-idlivre" class="form-control" th:field="*{idLivre}">
+      <p th:if="${#fields.hasErrors('idLivre')}" th:errors="*{idLivre}">Il y a des erreurs</p>
+      <p th:unless="${#fields.hasErrors('idLivre')}">Il n'y a pas d'erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-idusager" class="form-label">Usager</label>
+      <input type="number" id = "input-idusager" class="form-control" th:field="*{idUsager}">
+      <p th:if="${#fields.hasErrors('idUsager')}" th:errors="*{idUsager}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-dateempruntlivre" class="form-label">Date d'emprunt</label>
+      <input type="date" id = "input-dateempruntlivre" class="form-control" th:field="*{dateEmpruntLivre}">
+      <p th:if="${#fields.hasErrors('dateEmpruntLivre')}" th:errors="*{dateEmpruntLivre}">Il y a des erreurs</p>
+    </div>
+
+    <div class="mb-3">
+      <label for="input-daterentreeprevuelivre" class="form-label">Date de rentrée</label>
+      <input type="date" id = "input-daterentreeprevuelivre" class="form-control" th:field="*{dateRentreePrevueLivre}">
+      <p th:if="${#fields.hasErrors('dateRentreePrevueLivre')}" th:errors="*{dateRentreePrevueLivre}">Il y a des erreurs</p>
+    </div>
+
+    <button type="submit" class="btn-btn-info">Ajouter</button>
+  </form>
+</th:block>
+

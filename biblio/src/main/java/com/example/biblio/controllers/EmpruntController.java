@@ -2,7 +2,6 @@ package com.example.biblio.controllers;
 
 import com.example.biblio.models.*;
 import com.example.biblio.service.EmpruntService;
-import com.example.biblio.service.UsagerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +12,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Controller
-@RequestMapping("/emprunt")
+@RequestMapping("/emprunts")
 public class EmpruntController {
     private final EmpruntService service;
 
@@ -27,14 +26,14 @@ public class EmpruntController {
     public String displayOne(@PathVariable Long id, Model model){
         Emprunt e = service.getOne(id);
         model.addAttribute("emprunt", e);
-        return "forms/empruntidform";
+        return "forms/emprunt/empruntidform";
     }
 
     @PostMapping("/{id}")
 //    @PreAuthorize("isAuthenticated()")
     public String processUpdate(@Valid @ModelAttribute("emprunt") EmpruntForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/empruntform";
+            return "forms/emprunt/empruntform";
         Emprunt rslt = service.update(form);
         return "redirect:/emprunt/" + rslt.getIdEmprunt();
     }
@@ -55,27 +54,27 @@ public class EmpruntController {
     @GetMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String displayInsertForm(@ModelAttribute("emprunt") EmpruntForm form){
-        return "forms/empruntform";
+        return "forms/emprunt/empruntform";
     }
 
     @PostMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String processInsert(@Valid @ModelAttribute("emprunt") EmpruntForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/empruntform";
+            return "forms/emprunt/empruntform";
         Emprunt rslt = service.insert(form);
-        return "redirect:/emprunt/" + rslt.getIdEmprunt();
+        return "redirect:/emprunts/" + rslt.getIdEmprunt();
     }
 
     @GetMapping("/select")
 //    @PreAuthorize("isAuthenticated()")
     public String displaySelectForm(@ModelAttribute("emprunt") EmpruntFormId form){
-        return "forms/empruntidform";
+        return "forms/emprunt/empruntidform";
     }
 
     @GetMapping("/update")
 //    @PreAuthorize("isAuthenticated()")
     public String displayUpdateForm(@ModelAttribute("emprunt") EmpruntFormId form){
-        return "forms/empruntidform";
+        return "forms/emprunt/empruntidform";
     }
 }

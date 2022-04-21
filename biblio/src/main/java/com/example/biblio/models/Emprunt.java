@@ -26,6 +26,6 @@ public class Emprunt {
     private Long idUsager;
     @Column(name = "dateEmpruntLivre", nullable = false)
     private LocalDate dateEmpruntLivre;
-    @Column(name = "dateRentreePrevueLivre", nullable = true)
+    @Column(name = "dateRentreePrevueLivre", nullable = false)
     private LocalDate dateRentreePrevueLivre;
 }

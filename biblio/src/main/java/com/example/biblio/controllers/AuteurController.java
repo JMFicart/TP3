@@ -40,14 +40,14 @@ public class AuteurController {
         Auteur a = service.getOne(id);
         model.addAttribute("auteur", a);
 //        return "pages/auteur/displayAuteurById";
-        return "forms/auteuridform";
+        return "forms/auteur/auteuridform";
     }
 
     @PostMapping("/{id}")
 //    @PreAuthorize("isAuthenticated()")
     public String processUpdate(@Valid @ModelAttribute("auteur") AuteurForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/auteurform";
+            return "forms/auteur/auteurform";
         Auteur rslt = service.update(form);
         return "redirect:/auteur/" + rslt.getIdAuteur();
     }
@@ -68,14 +68,14 @@ public class AuteurController {
     @GetMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String displayInsertForm(@ModelAttribute("auteur") AuteurForm form){
-        return "forms/auteurform";
+        return "forms/auteur/auteurform";
     }
 
     @PostMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String processInsert(@Valid @ModelAttribute("auteur") AuteurForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/auteurform";
+            return "forms/auteur/auteurform";
         Auteur rslt = service.insert(form);
         return "redirect:/auteur/" + rslt.getIdAuteur();
     }
@@ -83,13 +83,13 @@ public class AuteurController {
     @GetMapping("/select")
 //    @PreAuthorize("isAuthenticated()")
     public String displaySelectForm(@ModelAttribute("auteur") AuteurFormId form){
-        return "forms/auteuridform";
+        return "forms/auteur/auteuridform";
     }
 
     @GetMapping("/update")
 //    @PreAuthorize("isAuthenticated()")
     public String displayUpdateForm(@ModelAttribute("auteur") AuteurFormId form){
-        return "forms/auteuridform";
+        return "forms/auteur/auteuridform";
     }
 
 }

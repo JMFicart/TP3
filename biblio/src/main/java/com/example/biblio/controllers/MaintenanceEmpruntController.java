@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/empruntmaintenance")
+@RequestMapping("/emprunt")
 public class MaintenanceEmpruntController {
     @GetMapping
 //    @PreAuthorize("permitAll()")

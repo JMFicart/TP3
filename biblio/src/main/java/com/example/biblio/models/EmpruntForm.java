@@ -14,5 +14,6 @@ public class EmpruntForm {
     private Long idUsager;
     @NotBlank(message="La date d'emprunt du livre ne peut être vide !")
     private LocalDate dateEmpruntLivre;
+    @NotBlank(message="La date de retour du livre ne peut être vide !")
     private LocalDate dateRentreePrevueLivre;
 }

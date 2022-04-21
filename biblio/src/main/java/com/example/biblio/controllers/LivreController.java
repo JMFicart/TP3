@@ -26,15 +26,14 @@ public class LivreController {
     public String displayOne(@PathVariable Long id, Model model){
         Livre l = service.getOne(id);
         model.addAttribute("livre", l);
-//        return "pages/auteur/displayAuteurById";
-        return "forms/livreidform";
+        return "forms/livre/livreidform";
     }
 
     @PostMapping("/{id}")
 //    @PreAuthorize("isAuthenticated()")
     public String processUpdate(@Valid @ModelAttribute("livre") LivreForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/livreform";
+            return "forms/livre/livreform";
         Livre rslt = service.update(form);
         return "redirect:/livre/" + rslt.getIdAuteur();
     }
@@ -55,14 +54,14 @@ public class LivreController {
     @GetMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String displayInsertForm(@ModelAttribute("livre") LivreForm form){
-        return "forms/livreform";
+        return "forms/livre/livreform";
     }
 
     @PostMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String processInsert(@Valid @ModelAttribute("livre") LivreForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/livreform";
+            return "forms/livre/livreform";
         Livre rslt = service.insert(form);
         return "redirect:/livre/" + rslt.getIdLivre();
     }
@@ -70,12 +69,12 @@ public class LivreController {
     @GetMapping("/select")
 //    @PreAuthorize("isAuthenticated()")
     public String displaySelectForm(@ModelAttribute("livre") LivreFormId form){
-        return "forms/livreidform";
+        return "forms/livre/livreidform";
     }
 
     @GetMapping("/update")
 //    @PreAuthorize("isAuthenticated()")
     public String displayUpdateForm(@ModelAttribute("livre") LivreFormId form){
-        return "forms/livreidform";
+        return "forms/livre/livreidform";
     }
 }

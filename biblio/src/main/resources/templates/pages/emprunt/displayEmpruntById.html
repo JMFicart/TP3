@@ -1,0 +1,10 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:replace="~{/layout/layout :: layout(~{::content},~{::css},'headerEmpruntById')}">
+<th:block th:object="${emprunt}" th:fragment="content">
+    <h4 th:text="|Id                  : ${emprunt.idUsager} |"></h4>
+    <p th:text="|Titre livre         : *{emprunt.idLivre}|"></p>
+    <p th:text="|Usager              : *{emprunt.idUsager}|"></p>
+    <p th:text="|Date emprunt        : *{emprunt.dateEmpruntLivre}|"></p>
+    <p th:text="|Date rentrée prévue : *{emprunt.dateRentreePrevueLivre}|"></p>
+</th:block>
+</html>

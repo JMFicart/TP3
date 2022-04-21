@@ -1,0 +1,17 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr" th:replace="~{/layout/layout :: layout(~{::content},_,'headerListeEmprunt')}" th:href="@{/css/main.css}">
+<th:block th:fragment="content" th:with="list=${get_all}">
+    <a th:href="@{/emprunt}"></a>
+    <ul>
+        <li th:each="emprunt : ${emprunt_liste}" th:object="${emprunt}">
+            <p th:text="|Id                  : *{idEmprunt}|"></p>
+            <p th:text="|Titre livre         : *{idLivre}|"></p>
+            <p th:text="|Usager              : *{idUsager}|"></p>
+            <p th:text="|Date emprunt        : *{dateEmpruntLivre}|"></p>
+            <p th:text="|Date rentrée prévue : *{dateRentreePrevueLivre}|"></p>
+
+            <p><a th:href="@{/emprunt/{idEmprunt}(idEmprunt=*{idEmprunt}, param1='param1')}">Update</a></p>
+        </li>
+    </ul>
+</th:block>
+</html>

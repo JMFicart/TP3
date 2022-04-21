@@ -28,14 +28,14 @@ public class UsagerController {
     public String displayOne(@PathVariable Long id, Model model){
         Usager u = service.getOne(id);
         model.addAttribute("usager", u);
-        return "forms/usageridform";
+        return "forms/usager/usageridform";
     }
 
     @PostMapping("/{id}")
 //    @PreAuthorize("isAuthenticated()")
     public String processUpdate(@Valid @ModelAttribute("usager") UsagerForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/usagerform";
+            return "forms/usager/usagerform";
         Usager rslt = service.update(form);
         return "redirect:/usager/" + rslt.getIdUsager();
     }
@@ -56,14 +56,14 @@ public class UsagerController {
     @GetMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String displayInsertForm(@ModelAttribute("usager") UsagerForm form){
-        return "forms/usagerform";
+        return "forms/usager/usagerform";
     }
 
     @PostMapping("/add")
 //    @PreAuthorize("isAuthenticated()")
     public String processInsert(@Valid @ModelAttribute("usager") UsagerForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/usagerform";
+            return "forms/usager/usagerform";
         Usager rslt = service.insert(form);
         return "redirect:/usager/" + rslt.getIdUsager();
     }
@@ -71,12 +71,12 @@ public class UsagerController {
     @GetMapping("/select")
 //    @PreAuthorize("isAuthenticated()")
     public String displaySelectForm(@ModelAttribute("usager") UsagerFormId form){
-        return "forms/usageridform";
+        return "forms/usager/usageridform";
     }
 
     @GetMapping("/update")
 //    @PreAuthorize("isAuthenticated()")
     public String displayUpdateForm(@ModelAttribute("usager") UsagerFormId form){
-        return "forms/usageridform";
+        return "forms/usager/usageridform";
     }
 }

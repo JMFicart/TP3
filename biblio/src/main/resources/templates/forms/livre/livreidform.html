@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_,'headerIdLivre')}">
+<html lang="en" th:replace="~{/layout/layout :: layout(~{::content},_,'headerUpdateLivre')}">
 <th:block th:fragment="content">
   <a href="/>livre">    </a>
   <!--    <button class=""btn btn-danger></button>-->
-  <form action="#" th:action="@{/auteur/*{idAuteur}}" th:object="${auteur}" method="post">
+  <form action="#" th:action="@{/livre/*{idLivre}}" th:object="${livre}" method="post">
     <div class="mb-3">
       <label for="input-idlivre" class="form-label">Id Livre</label>
       <input type="number" id = "input-idlivre" class="form-control" th:field="*{idLivre}">

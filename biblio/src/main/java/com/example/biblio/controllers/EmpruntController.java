@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Controller
-@RequestMapping("/emprunts")
+@RequestMapping("/emprunt")
 public class EmpruntController {
     private final EmpruntService service;
 
@@ -63,7 +63,7 @@ public class EmpruntController {
         if (binding.hasErrors())
             return "forms/emprunt/empruntform";
         Emprunt rslt = service.insert(form);
-        return "redirect:/emprunts/" + rslt.getIdEmprunt();
+        return "redirect:/emprunt/" + rslt.getIdEmprunt();
     }
 
     @GetMapping("/select")

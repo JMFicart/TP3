@@ -137,11 +137,19 @@
     <h2>Gestion de la bibliothèque XYZ</h2><br>
     <h3>Gestion des emprunts</h3><br>
     <nav>
-        <a href="/emprunt/add" class="nav_link">Emprunts</a>
+        <a href="/emprunt/add" class="nav_link">Ajout</a>
         <a href="/emprunt/rentree" class="nav_link">Rentrée</a>
         <a href="/emprunt/encours" class="nav_link">Liste des emprunts en cours</a>
         <a href="/emprunt/enretard" class="nav_link">Liste des retards</a>
         <a href="/bibliomenu" class="nav_link">Retour</a>
+    </nav>
+</header>
+
+<header th:fragment = "headerListeEmprunt">
+    <h2>Gestion de la bibliothèque XYZ</h2><br>
+    <h3>Liste des emprunts</h3><br>
+    <nav>
+        <a href="/empruntmaintenance" class="nav_link">Retour</a>
     </nav>
 </header>
 

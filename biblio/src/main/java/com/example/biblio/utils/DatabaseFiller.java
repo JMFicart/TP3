@@ -1,14 +1,17 @@
 package com.example.biblio.utils;
 
 import com.example.biblio.models.Auteur;
+import com.example.biblio.models.Emprunt;
 import com.example.biblio.models.Livre;
 import com.example.biblio.models.Usager;
 import com.example.biblio.repositories.AuteurRepository;
+import com.example.biblio.repositories.EmpruntRepository;
 import com.example.biblio.repositories.LivreRepository;
 import com.example.biblio.repositories.UsagerRepository;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Column;
 import java.time.LocalDate;
 
 @Component
@@ -16,11 +19,13 @@ public class DatabaseFiller implements InitializingBean{
     private final AuteurRepository aRepo;
     private final LivreRepository lRepo;
     private final UsagerRepository uRepo;
+    private final EmpruntRepository eRepo;
 
-    public DatabaseFiller(AuteurRepository aRepo, LivreRepository lRepo, UsagerRepository uRepo) {
+    public DatabaseFiller(AuteurRepository aRepo, LivreRepository lRepo, UsagerRepository uRepo, EmpruntRepository eRepo) {
         this.aRepo = aRepo;
         this.lRepo = lRepo;
         this.uRepo = uRepo;
+        this.eRepo = eRepo;
     }
 
     private void setupAuteur(){
@@ -120,7 +125,6 @@ public class DatabaseFiller implements InitializingBean{
                 .telephoneUsager("0472/934812")
                 .emailUsager("t.cutugno@gmail.com")
                 .dateInscriptionUsager(LocalDate.now().minusYears(1))
-//                .dateRadiationUsager("")
                 .build();
         uRepo.save(u);
 
@@ -139,10 +143,31 @@ public class DatabaseFiller implements InitializingBean{
         uRepo.save(u);
     }
 
+    private void setupEmprunt(){
+        Emprunt e = Emprunt.builder()
+                .idEmprunt(1L)
+                .idLivre(1L)
+                .idUsager(1L)
+                .dateEmpruntLivre(LocalDate.now().minusDays(2))
+                .dateRentreePrevueLivre(LocalDate.now().plusDays(28))
+                .build();
+        eRepo.save(e);
+
+        e = Emprunt.builder()
+                .idEmprunt(2L)
+                .idLivre(2L)
+                .idUsager(2L)
+                .dateEmpruntLivre(LocalDate.now().minusDays(15))
+                .dateRentreePrevueLivre(LocalDate.now().plusDays(15))
+                .build();
+        eRepo.save(e);
+    }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         setupAuteur();
         setupLivre();
         setupUsager();
+        setupEmprunt();
     }
 }

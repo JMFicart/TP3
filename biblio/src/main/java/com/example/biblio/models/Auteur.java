@@ -21,5 +21,3 @@ public class Auteur {
     private String nationaliteAuteur;
 }
 
-
-

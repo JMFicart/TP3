@@ -35,9 +35,9 @@ public class UsagerController {
 //    @PreAuthorize("isAuthenticated()")
     public String processUpdate(@Valid @ModelAttribute("usager") UsagerForm form, BindingResult binding){
         if (binding.hasErrors())
-            return "forms/livreform";
+            return "forms/usagerform";
         Usager rslt = service.update(form);
-        return "redirect:/livre/" + rslt.getIdUsager();
+        return "redirect:/usager/" + rslt.getIdUsager();
     }
 
     @GetMapping

@@ -1,6 +1,8 @@
-package com.example.biblio.controllers;
+package com.example.biblio.controllers.data;
 
-import com.example.biblio.models.*;
+import com.example.biblio.models.emprunt.Emprunt;
+import com.example.biblio.models.emprunt.EmpruntForm;
+import com.example.biblio.models.emprunt.EmpruntFormId;
 import com.example.biblio.service.EmpruntService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,9 +1,9 @@
 package com.example.biblio.utils;
 
-import com.example.biblio.models.Auteur;
-import com.example.biblio.models.Emprunt;
-import com.example.biblio.models.Livre;
-import com.example.biblio.models.Usager;
+import com.example.biblio.models.auteur.Auteur;
+import com.example.biblio.models.emprunt.Emprunt;
+import com.example.biblio.models.livre.Livre;
+import com.example.biblio.models.usager.Usager;
 import com.example.biblio.repositories.AuteurRepository;
 import com.example.biblio.repositories.EmpruntRepository;
 import com.example.biblio.repositories.LivreRepository;
@@ -11,7 +11,6 @@ import com.example.biblio.repositories.UsagerRepository;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Column;
 import java.time.LocalDate;
 
 @Component

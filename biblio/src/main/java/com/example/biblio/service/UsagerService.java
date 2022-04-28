@@ -1,7 +1,7 @@
 package com.example.biblio.service;
 
-import com.example.biblio.models.Usager;
-import com.example.biblio.models.UsagerForm;
+import com.example.biblio.models.usager.Usager;
+import com.example.biblio.models.usager.UsagerForm;
 import com.example.biblio.repositories.UsagerRepository;
 import org.springframework.stereotype.Service;
 

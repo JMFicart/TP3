@@ -1,7 +1,7 @@
 package com.example.biblio.service;
 
-import com.example.biblio.models.Emprunt;
-import com.example.biblio.models.EmpruntForm;
+import com.example.biblio.models.emprunt.Emprunt;
+import com.example.biblio.models.emprunt.EmpruntForm;
 import com.example.biblio.repositories.EmpruntRepository;
 import org.springframework.stereotype.Service;
 

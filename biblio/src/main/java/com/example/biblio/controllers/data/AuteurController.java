@@ -1,18 +1,14 @@
-package com.example.biblio.controllers;
+package com.example.biblio.controllers.data;
 
-import com.example.biblio.models.Auteur;
-import com.example.biblio.models.AuteurForm;
-import com.example.biblio.models.AuteurFormId;
+import com.example.biblio.models.auteur.Auteur;
+import com.example.biblio.models.auteur.AuteurForm;
+import com.example.biblio.models.auteur.AuteurFormId;
 import com.example.biblio.service.AuteurService;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.NoSuchElementException;

@@ -1,15 +1,15 @@
-package com.example.biblio.controllers;
+package com.example.biblio.controllers.menus;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/livremaintenance")
-public class MaintenanceLivreController {
+@RequestMapping("/bibliomenu")
+public class MainMenuController {
     @GetMapping
 //    @PreAuthorize("permitAll()")
-    public String displayLivreMaintenance(){
-        return "pages/livre/menuLivreMaintenance";
+    public String displayMenu(){
+        return "pages/misc/mainMenu";
     }
 }

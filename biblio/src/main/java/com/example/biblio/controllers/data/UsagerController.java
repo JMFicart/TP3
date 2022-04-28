@@ -1,8 +1,8 @@
-package com.example.biblio.controllers;
+package com.example.biblio.controllers.data;
 
-import com.example.biblio.models.Usager;
-import com.example.biblio.models.UsagerForm;
-import com.example.biblio.models.UsagerFormId;
+import com.example.biblio.models.usager.Usager;
+import com.example.biblio.models.usager.UsagerForm;
+import com.example.biblio.models.usager.UsagerFormId;
 import com.example.biblio.service.UsagerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

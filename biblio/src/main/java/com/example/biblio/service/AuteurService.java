@@ -1,7 +1,7 @@
 package com.example.biblio.service;
 
-import com.example.biblio.models.Auteur;
-import com.example.biblio.models.AuteurForm;
+import com.example.biblio.models.auteur.Auteur;
+import com.example.biblio.models.auteur.AuteurForm;
 import com.example.biblio.repositories.AuteurRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;

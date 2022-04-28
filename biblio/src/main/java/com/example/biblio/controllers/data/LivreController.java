@@ -1,6 +1,8 @@
-package com.example.biblio.controllers;
+package com.example.biblio.controllers.data;
 
-import com.example.biblio.models.*;
+import com.example.biblio.models.livre.Livre;
+import com.example.biblio.models.livre.LivreForm;
+import com.example.biblio.models.livre.LivreFormId;
 import com.example.biblio.service.LivreService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
